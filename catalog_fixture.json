@@ -1,0 +1,99 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Гаджеты",
+        "description": "Категория для гаджетов"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Продукты",
+        "description": "Категория для продуктов"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+        "name": "Гаджеты",
+        "description": "Категория для гаджетов"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+        "name": "Продукты",
+        "description": "Категория для продуктов"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Самсунг",
+        "description": "Крутой новый смартфон",
+        "pics": "",
+        "category": 2,
+        "price": 50000,
+        "created_at": "2025-10-01T21:32:19.066Z",
+        "updated_at": "2025-10-01T21:32:19.066Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Айфон",
+        "description": "Крутой новый айфон",
+        "pics": "",
+        "category": 2,
+        "price": 90000,
+        "created_at": "2025-10-01T21:33:13.746Z",
+        "updated_at": "2025-10-01T21:33:13.746Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Айфон",
+        "description": "Крутой новый айфон",
+        "pics": "",
+        "category": 2,
+        "price": 90000,
+        "created_at": "2025-10-01T21:33:36.914Z",
+        "updated_at": "2025-10-01T21:33:36.914Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "Самсунг",
+        "description": "Крутой новый смартфон",
+        "pics": "",
+        "category": 2,
+        "price": 50000,
+        "created_at": "2025-10-01T21:33:40.098Z",
+        "updated_at": "2025-10-01T21:33:40.098Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+        "name": "Бананы",
+        "description": "Вкусные бананы",
+        "pics": "",
+        "category": 3,
+        "price": 70,
+        "created_at": "2025-10-01T21:35:14.334Z",
+        "updated_at": "2025-10-01T21:35:14.334Z"
+    }
+}
+]
