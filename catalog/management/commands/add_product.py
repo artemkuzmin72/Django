@@ -5,7 +5,7 @@ class Command(BaseCommand):
     help = 'Add test products to the database'
 
     def handle(self, *args, **kwargs):
-        category, _ = Category.objects.get_or_create(name='Машины', descriptions='Категория машин')
+        category, _ = Category.objects.get_or_create(name='Машины', description='Категория машин')
 
         cars = [
             {'name': 'Mercedes', 'description': 'Brand new car', 'category': category, 'price': 5000000},

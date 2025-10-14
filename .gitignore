@@ -77,3 +77,4 @@ Thumbs.db
 # Django
 *.log
 local_settings.py
+__pycache__
