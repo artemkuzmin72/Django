@@ -7,25 +7,12 @@
     <title>{% block title %}Skystore{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
-
 <body>
-    <!-- Шапка сайта -->
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-        <h5 class="my-0 mr-md-auto font-weight-normal">Skystore</h5>
-        <nav class="ms-5">
-            <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:home' %}">Каталог</a>
-            <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:contacts' %}">Контакты</a>
-            <a class="p-2 btn btn-outline-primary" href="{% url 'catalog:products' %}">Продукты</a>
-        </nav>
-    </div>
-
-    <!-- Основной контент -->
+    {% include "catalog/menu.html" %}
     <main class="container mt-4">
         {% block content %}
         {% endblock %}
     </main>
-
-    <!-- Футер -->
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
             <div class="col-12 col-md">

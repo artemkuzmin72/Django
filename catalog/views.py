@@ -17,6 +17,7 @@ def product_detail(request, product_id):
         'product_category': product.category.name,
         'product_created_at': product.created_at,
         'product_updated_at': product.updated_at,
+        'product_image': product.pics,
     }
     return render(request, 'catalog/product_detail.html', context)
 

@@ -1,18 +1,30 @@
-<!-- students/student_detail.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Детали продукта</title>
-</head>
-<body>
-    <h1>Детали продукта</h1>
-    <p>Имя: {{  product_name }}</p>
-    <p>Категория: {{ product_category }}</p>
-    <p>Описание: {{ product_description }}</p>
-    <p>Цена: {{ product_price }}</p>
-    <p>Создано: {{ product_created_at }}</p>
-    <p>Обновлено: {{ product_updated_at }}</p>
-    <a href="/catalog/products/">Назад к списку продуктов</a>
-</body>
-</html>
+{% extends "catalog/base.html" %}
+{% block title %}{{ product.name }} Инфо — Skystore {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Детали продукта</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            {% if product.image %}
+                <img src="{{ product_image }}" alt="{{ product_name }}" class="img-fluid mb-3 rounded" style="max-height: 300px;">
+            {% else %}
+                <img src="https://via.placeholder.com/300x200?text=Нет+изображения" class="img-fluid mb-3 rounded" alt="Нет изображения">
+            {% endif %}
+
+            <h4 class="card-title">{{ product_name }}</h4>
+            <p><strong>Категория:</strong> {{ product_category }}</p>
+            <p><strong>Описание:</strong> {{ product_description }}</p>
+            <p><strong>Цена:</strong> {{ product_price }} ₽</p>
+            <p><strong>Изображение</strong> {{ product_category }}</p>
+            <p class="text-muted">
+                <strong>Создано:</strong> {{ product_created_at|date:"d.m.Y H:i" }}<br>
+                <strong>Обновлено:</strong> {{ product_updated_at|date:"d.m.Y H:i" }}
+            </p>
+            <a href="{% url 'catalog:products' %}" class="btn btn-outline-primary mt-2">Назад к списку</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

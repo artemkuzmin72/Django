@@ -4,7 +4,6 @@
 {% block content %}
 <div class="container mt-4">
     <h2 class="mb-4">Список продуктов</h2>
-
     <ul class="list-group">
         {% for product in products %}
             <li class="list-group-item d-flex justify-content-between align-items-start
@@ -21,12 +20,6 @@
                     <p class="mb-1 text-muted">
                         {{ product.description|truncatechars:100 }}
                     </p>
-                    <p class="mb-1">
-                        <strong>Цена:</strong> {{ product.price }} ₽
-                    </p>
-                    <p class="text-secondary small">
-                        Создано: {{ product.created_at|date:"d.m.Y H:i" }}
-                    </p>
                     <span class="badge bg-secondary">
                         {% if product.category.name == 'Продукты' %}
                             Продукты
@@ -36,7 +29,6 @@
                             Другое
                         {% endif %}
                     </span>
-
                     <div class="mt-2">
                         <a href="{% url 'catalog:product_detail' product.id %}" class="btn btn-sm btn-outline-primary">
                             Подробнее
