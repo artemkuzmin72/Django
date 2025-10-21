@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Product
+from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
 
 def home(request):
     return render(request,'catalog/home.html')
@@ -8,22 +10,13 @@ def home(request):
 def contacts(request):
     return render(request,'catalog/contacts.html')
 
-def product_detail(request, product_id):
-    product = Product.objects.get(id=product_id)
-    context = {
-        'product_name': product.name,
-        'product_price': product.price,
-        'product_description': product.description,
-        'product_category': product.category.name,
-        'product_created_at': product.created_at,
-        'product_updated_at': product.updated_at,
-        'product_image': product.pics,
-    }
-    return render(request, 'catalog/product_detail.html', context)
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'catalog/product_detail.html'
+    context_object_name = 'product'
+    pk_url_kwarg = 'product_id' 
 
-def view_product(request):
-    products = Product.objects.all()
-    context = {
-        'products': products
-    }
-    return render(request,'catalog/products.html', context=context)
+class ProductListView(ListView):
+    model = Product
+    template_name = 'catalog/products.html'
+    context_object_name = 'products'

@@ -1,0 +1,33 @@
+{% extends "catalog/base.html" %}
+{% load static %}
+
+{% block title %}Редактировать: {{ post.title }} — Skystore{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm p-4">
+                <h1 class="mb-4 text-center">Редактирование поста</h1>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    {% if post.image %}
+                        <div class="mb-3">
+                            <label class="form-label">Текущее изображение:</label>
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded shadow-sm">
+                        </div>
+                    {% endif %}
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                        <a href="{% url 'blog:post_detail' post.pk %}" class="btn btn-secondary">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
