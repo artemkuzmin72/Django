@@ -1,0 +1,46 @@
+{% extends "catalog/base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }} — Skystore{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <article class="card shadow-sm p-4">
+                <header class="mb-4">
+                    <h1 class="mb-3">{{ post.title }}</h1>
+                    <div class="text-muted small">
+                        Опубликовано: {{ post.created_at|date:"d.m.Y H:i" }}
+                        | Просмотров: {{ post.views }}
+                    </div>
+                </header>
+
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" 
+                         alt="{{ post.title }}" 
+                         class="img-fluid rounded mb-4 shadow-sm">
+                {% endif %}
+
+                <section class="mb-4">
+                    <p style="white-space: pre-line;">{{ post.content }}</p>
+                </section>
+
+                <footer class="d-flex justify-content-between mt-4">
+                    <a href="{% url 'blog:post_list' %}" class="btn btn-outline-primary">
+                        ← Назад к списку
+                    </a>
+                    <div>
+                        <a href="{% url 'blog:post_update' post.pk %}" class="btn btn-warning me-2">
+                            Редактировать
+                        </a>
+                        <a href="{% url 'blog:post_delete' post.pk %}" class="btn btn-warning me-2">
+                            Удалить
+                        </a>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}
