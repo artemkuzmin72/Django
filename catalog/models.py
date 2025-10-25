@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.conf import settings
+from django.db.models.deletion import CASCADE
 class Category(models.Model):
     name = models.CharField(max_length=150, verbose_name='Наименование')
     description = models.TextField()
@@ -18,12 +19,6 @@ class Product(models.Model):
     pics = models.ImageField(upload_to='images/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.IntegerField()
+    is_published = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Продукт'
-        verbose_name_plural = 'Продукты'
+    updated_at = models.DateTimeField(auto_now_add=True)
