@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
-from .models import Product
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
-from .forms import ProductForm 
-
-def home(request):
-    return render(request,'catalog/home.html')
-
-
-def contacts(request):
-    return render(request,'catalog/contacts.html')
-=======
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
@@ -31,7 +16,6 @@ def home(request):
 def contacts(request):
     return render(request, 'catalog/contacts.html')
 
->>>>>>> 0a3aaf5 (Access)
 
 class ProductDetailView(DetailView):
     model = Product
