@@ -1,0 +1,25 @@
+{% extends "catalog/base.html" %}
+{% block title %}Товары категории {{ category.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Категория: {{ category.name }}</h2>
+
+    {% if products %}
+        <div class="list-group">
+            {% for product in products %}
+                <a href="{% url 'catalog:product_detail' product.id %}" 
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>{{ product.name }}</strong><br>
+                        <small class="text-muted">{{ product.description|truncatechars:80 }}</small>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">{{ product.price }} ₽</span>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>В этой категории пока нет товаров.</p>
+    {% endif %}
+</div>
+{% endblock %}
