@@ -26,6 +26,13 @@
                     </div>
 
                     <p class="mb-1 text-muted">
+                        Категория:
+                    <a href="{% url 'catalog:products_by_category' product.category.id %}">
+                        {{ product.category.name }}
+                    </a>
+                </p>
+
+                    <p class="mb-1 text-muted">
                         {{ product.description|truncatechars:100 }}
                     </p>
 
@@ -48,6 +55,13 @@
                             <form action="{% url 'catalog:unpublish_product' product.id %}" method="post" style="display:inline;">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-sm btn-outline-warning">Отменить публикацию</button>
+                            </form>
+                        {% endif %}
+
+                        {% if perms.catalog.can_unpublish_product and not product.is_published %}
+                            <form action="{% url 'catalog:publish_product' product.id %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-outline-success">Опубликовать</button>
                             </form>
                         {% endif %}
 
